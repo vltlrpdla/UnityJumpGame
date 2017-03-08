@@ -1,4 +1,5 @@
 https://www.inflearn.com/course/%EC%9C%A0%EB%8B%88%ED%8B%B0-%EA%B0%95%EC%A2%8C-unity/
+http://www.androidpub.com/index.php?document_srl=1851206&mid=devfree&cpage=1#comment
 
 hierarchy project의 경우는 메모리 ....
 
@@ -41,6 +42,8 @@ Cube --> obj
 Camera --> obj + function(obj에 필요한 기능) 
 
 
+
+
 opengl의 좌표가 있다 --> 위치
 obj --> 크기, 위치 , 회전  어떤 좌표에서 어느정도의 크기로 얼마만큼의 회전으로 opengl에서 배운것과 같다.
 
@@ -69,6 +72,35 @@ Debug 게임 실행 도중에 어떤 문자를 확인하고 싶다면
 : 스타트는 한번 만든다.
 
 
+rigidbody 
+
+use gravity 
+
+edit -> project setting -> phisics
+
+2D에서의 충돌연산은 상대적으로 가벼운 편이다.
+
+유니티에서의 물리는 2가지를 기준으로 구성되게 된다.
+
+첫 번째, 리지드바디(3D/2D) 충돌도 담당하지만 물리측면도 담당한다.
+두 번째, 컬라이더(충돌을 위한 범위를 담당한다.)
+
+리지드바디가 어떤 컬라이더와 부딪힌다.
+
+충돌은 일반적으로 
+
+점
+선
+회전하지 않은 사각형
+단위원에서 확장된 원
+회전한 사각형 OBB
 
 
+center 충돌체의 중심
+size 충돌체의 크기
 
+
+물리적 충돌에 의한 값을 조정할 수 있다
+
+Freeze Position
+Freeze Rotation
