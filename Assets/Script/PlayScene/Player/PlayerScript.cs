@@ -121,6 +121,14 @@ public class PlayerScript : MonoBehaviour {
         CurJumpCount = MaxJumpCount;
     }
 
+
+    // IsTrigger이 세팅되어 있을때와
+    // 안되어 있을대의 충돌용 함수가 다르다.
+    // 물리적용이 되지 않은 충돌
+    void OnTriggerEnter(Collider _col)
+    {
+        _col.gameObject.SetActive(false);
+    }
     //주의사항
     // 이 함수는 리지드 바디를 가진 오브젝트 안에 있는 스크립트에서만 실행된다.
     // 두번째, 컬라이더도 같이 가지고 있어야 실행된다.
@@ -129,12 +137,31 @@ public class PlayerScript : MonoBehaviour {
     void OnCollisionEnter(Collision _Col)
     {
         if (9 == _Col.gameObject.layer) {
-            JumpCountReset();
+
+            //어떤 경우에만 리셋해줘야 한다.
+            //내가 부딪힌 곳이 바닥인지 아니면 윗면인지 2가지 방식으로 체크가 가능하다.
+            //평면의 방정식(유니티 지원), 
+            //직선의 방정식
+
+            // 가장 기본적인 것으로 2개의 벡터가 필요하다. 평면을 구성하기 위해서는
+            //
+            Plane ChechPlane = new Plane(_Col.gameObject.transform.up, _Col.gameObject.transform.position);
+            float Dis = ChechPlane.GetDistanceToPoint(this.transform.position);
+
+            if (Dis > 0f) {
+                Debug.Log("윗면");
+                JumpCountReset();
+            }else
+            {
+                Debug.Log("아랫면");
+            }
+            
         }
             
         
         // 게임오브젝트의 이름을 의미한다. (나와 충돌한)
     }
+
     //처음 충돌했을 때
     //OnCollisionEnter;
     //OntriggerEnter;

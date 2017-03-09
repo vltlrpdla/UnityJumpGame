@@ -48,6 +48,8 @@
   <ItemGroup>
      <Compile Include="Assets\Script\PlayScene\Player\CameraScript.cs" />
      <Compile Include="Assets\Script\PlayScene\Player\PlayerScript.cs" />
+     <Compile Include="Assets\Script\PlayScene\ScaffoldingParent\ActiveScaffolding.cs" />
+     <Compile Include="Assets\Script\PlayScene\ScaffoldingParent\ScaffoldingParent.cs" />
      <Compile Include="Assets\Script\testScript\TestScript.cs" />
      <Compile Include="Assets\Script\testScript\TestScript1.cs" />
  <Reference Include="UnityEngine.UI">
